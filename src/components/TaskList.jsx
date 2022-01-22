@@ -6,7 +6,6 @@ import { ShowCompletedTodos } from "./showCompletedTodos";
 
 const TaskList = () => {
   const [todo, setTodo] = React.useState([]);
-  // const [bgcolor, setBgColor] = React.useState("#FF5C5C");
   const [completedTodos, setCompletedTodos] = React.useState(todo);
   const [toggleshowTodos, setToggleShowTodos] = React.useState(false);
 
@@ -60,7 +59,7 @@ const TaskList = () => {
       />
       {toggleshowTodos
         ? completedTodos?.map((item) => (
-            <div className="item" style={{ backgroundColor: item.bgcolor }}>
+            <div className="w-50 mx-auto my-2" style={{ backgroundColor: item.bgcolor }}>
               <TaskItem
                 key={item.id}
                 {...item}
@@ -72,7 +71,7 @@ const TaskList = () => {
         : todo?.map((item) => (
             <div
               key={item.id}
-              className="item"
+              className="w-50 mx-auto my-2"
               style={{ backgroundColor: item.bgcolor }}
             >
               <TaskItem

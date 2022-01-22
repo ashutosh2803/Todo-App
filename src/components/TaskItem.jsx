@@ -1,21 +1,19 @@
 import React from "react";
-// import { VscCheck } from "react-icons/vsc";
-// import {VscChromeClose  } from "react-icons/vsc";
+import { Button } from "react-bootstrap";
 
 const TaskItem = ({ title, handleToggle, handleDelete, status, id }) => {
   return (
-    <>
-      <h3 className="title">{title}</h3>
-      {/* {
-                status ? <VscCheck className="taskitem_btn" onClick={() => handleToggle(id)}/> : <VscChromeClose className="taskitem_btn" onClick={() => handleToggle(id)}/>
-            } */}
-      <button className="taskitem_btn" onClick={() => handleToggle(id)}>
-        {status ? `COMPLETED` : `PENDING`}
-      </button>
-      <button className="taskitem_btn" onClick={() => handleDelete(id)}>
-        DELETE
-      </button>
-    </>
+    <div className="d-flex justify-content-between align-items-center p-2">
+      <div className="display-6 text-white">{title}</div>
+      <div>
+        <Button className={status ? 'btn btn-success mx-2' : 'btn btn-warning mx-2'} onClick={() => handleToggle(id)}>
+          {status ? `COMPLETED` : `PENDING`}
+        </Button>
+        <Button className="btn btn-danger mx-2" onClick={() => handleDelete(id)}>
+          DELETE
+        </Button>
+      </div>
+    </div>
   );
 };
 
