@@ -9,7 +9,7 @@ const TaskItem = ({ title, handleToggle, handleDelete, status, id }) => {
         <Button className={status ? 'btn btn-success mx-2' : 'btn btn-warning mx-2'} onClick={() => handleToggle(id)}>
           {status ? `COMPLETED` : `PENDING`}
         </Button>
-        <Button className="btn btn-danger mx-2" onClick={() => handleDelete(id)}>
+        <Button className="btn btn-danger mx-2 letter-spacing-2" onClick={() => handleDelete(id)}>
           DELETE
         </Button>
       </div>
