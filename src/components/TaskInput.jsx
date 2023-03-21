@@ -10,16 +10,16 @@ const TaskInput = ({ handleTodo }) => {
     setTaskName(value);
   };
   return (
-    <div className="d-flex justify-content-center align-items-center">
-      <InputGroup size="lg" className="w-50">
+    <div className="w-96 p-2 d-flex justify-content-center align-items-center">
+      <InputGroup size="lg" className="w-80">
         <FormControl
-          placeholder="Add a to-do..."
+          placeholder="Add a todo..."
           onChange={handleChange}
           value={taskName}
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm" />
       </InputGroup>
-      <Button onClick={() => { handleTodo(taskName); setTaskName("")}} className="btn btn-light"><VscAdd className="display-6 px-2 cursor-pointer"></VscAdd></Button>
+      <Button onClick={() => { handleTodo(taskName); setTaskName("")}} className="btn btn-light"><VscAdd className="display-6 cursor-pointer"></VscAdd></Button>
     </div>
   );
 };

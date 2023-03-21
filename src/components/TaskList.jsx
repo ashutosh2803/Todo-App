@@ -59,7 +59,7 @@ const TaskList = () => {
       />
       {toggleshowTodos
         ? completedTodos?.map((item) => (
-            <div className="w-50 mx-auto my-2" style={{ backgroundColor: item.bgcolor }}>
+            <div className="w-100 mx-auto my-2" style={{ backgroundColor: item.bgcolor }}>
               <TaskItem
                 key={item.id}
                 {...item}
@@ -71,7 +71,7 @@ const TaskList = () => {
         : todo?.map((item) => (
             <div
               key={item.id}
-              className="w-50 mx-auto my-2"
+              className="w-96 my-2 mx-2"
               style={{ backgroundColor: item.bgcolor }}
             >
               <TaskItem
