@@ -5,10 +5,28 @@ import { TaskItem } from "./TaskItem";
 import { ShowCompletedTodos } from "./showCompletedTodos";
 
 const TaskList = () => {
-  const [todo, setTodo] = React.useState([]);
-  const [completedTodos, setCompletedTodos] = React.useState(todo);
+  const [todo, setTodo] = React.useState(() => {
+    // getting stored value
+    console.log('local storage called');
+    const saved = localStorage.getItem('todo');
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+  });
+  const [completedTodos, setCompletedTodos] = React.useState(() => {
+    // getting stored value
+    console.log('local storage called');
+    const saved = localStorage.getItem('completed_todos');
+    const initialValue = JSON.parse(saved);
+    return initialValue || todo;
+  });
   const [toggleshowTodos, setToggleShowTodos] = React.useState(false);
 
+  React.useEffect(() => {
+    console.log('local storage updated');
+    localStorage.setItem('todo', JSON.stringify(todo));
+    localStorage.setItem('completed_todos', JSON.stringify(completedTodos));
+  }, [todo, completedTodos]);
+  
   const handleTodo = (taskName) => {
     const payload = {
       id: uuid(),
@@ -17,6 +35,7 @@ const TaskList = () => {
       bgcolor: "#FF5C5C"
     };
     setTodo([...todo, payload]);
+    setToggleShowTodos(false);
   };
   const handleToggle = (id) => {
     const data = todo.map((item) =>
