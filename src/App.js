@@ -7,7 +7,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="display-1">TODO</div>
+        <div className="display-1 fw-bold">TODO</div>
         <TaskList />
       </div>
     );
