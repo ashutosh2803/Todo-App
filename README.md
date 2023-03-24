@@ -15,4 +15,4 @@ To run the app locally,
 
 ![TODO List](https://user-images.githubusercontent.com/40117155/226581838-78a4273b-4927-46aa-b7da-acef92629044.png)
     
-If you liked my work, give us a star!
+If you liked my work, give us a star!⭐️
