@@ -32,8 +32,8 @@ const TaskList = () => {
     console.log('local storage updated');
     localStorage.setItem('todo', JSON.stringify(todo));
     localStorage.setItem('completed_todos', JSON.stringify(completedTodos));
-    localStorage.setItem('pending_todos', JSON.stringify(pendingTodos));
-  }, [todo, completedTodos, pendingTodos]);
+    // localStorage.setItem('pending_todos', JSON.stringify(pendingTodos));
+  }, [todo, completedTodos]);
   
   const handleTodo = (taskName) => {
     const payload = {
