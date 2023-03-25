@@ -19,13 +19,21 @@ const TaskList = () => {
     const initialValue = JSON.parse(saved);
     return initialValue || todo;
   });
+  const [pendingTodos, setPendingTodos] = React.useState(() => {
+    // getting stored value
+    console.log('local storage called');
+    const saved = localStorage.getItem('pending_todos');
+    const initialValue = JSON.parse(saved);
+    return initialValue || todo;
+  });
   const [toggleshowTodos, setToggleShowTodos] = React.useState(false);
 
   React.useEffect(() => {
     console.log('local storage updated');
     localStorage.setItem('todo', JSON.stringify(todo));
     localStorage.setItem('completed_todos', JSON.stringify(completedTodos));
-  }, [todo, completedTodos]);
+    localStorage.setItem('pending_todos', JSON.stringify(pendingTodos));
+  }, [todo, completedTodos, pendingTodos]);
   
   const handleTodo = (taskName) => {
     const payload = {
@@ -78,7 +86,7 @@ const TaskList = () => {
       />
       {toggleshowTodos
         ? completedTodos?.map((item) => (
-            <div className="w-100 mx-auto my-2" style={{ backgroundColor: item.bgcolor }}>
+            <div className="w-96 mx-2 my-2" style={{ backgroundColor: item.bgcolor }}>
               <TaskItem
                 key={item.id}
                 {...item}
