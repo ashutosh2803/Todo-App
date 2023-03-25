@@ -63,6 +63,7 @@ const TaskList = () => {
     todo.map((item) =>
       item.id === id ? window.alert(`${item.title} Deleted!`) : item
     );
+    setToggleShowTodos(!toggleshowTodos);
     setTodo(data);
   };
   const handleShowCompletedTodos = () => {
