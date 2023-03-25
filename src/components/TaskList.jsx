@@ -19,13 +19,13 @@ const TaskList = () => {
     const initialValue = JSON.parse(saved);
     return initialValue || todo;
   });
-  const [pendingTodos, setPendingTodos] = React.useState(() => {
-    // getting stored value
-    console.log('local storage called');
-    const saved = localStorage.getItem('pending_todos');
-    const initialValue = JSON.parse(saved);
-    return initialValue || todo;
-  });
+  // const [pendingTodos, setPendingTodos] = React.useState(() => {
+  //   // getting stored value
+  //   console.log('local storage called');
+  //   const saved = localStorage.getItem('pending_todos');
+  //   const initialValue = JSON.parse(saved);
+  //   return initialValue || todo;
+  // });
   const [toggleshowTodos, setToggleShowTodos] = React.useState(false);
 
   React.useEffect(() => {
