@@ -70,7 +70,7 @@ const TaskList = () => {
     const data = [];
     for (let i = 0; i < todo.length; i++) {
       if (todo[i].status !== false) {
-        data.push({ ...todo[i] });
+        data.push({ ...todo[i]});
       }
     }
     setCompletedTodos(data);
