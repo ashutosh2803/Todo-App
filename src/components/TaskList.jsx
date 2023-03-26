@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 import { TaskInput } from "./TaskInput";
 import { TaskItem } from "./TaskItem";
 import { ShowCompletedTodos } from "./showCompletedTodos";
+import { Button } from "react-bootstrap";
 
 const TaskList = () => {
   const [todo, setTodo] = React.useState(() => {
@@ -55,9 +56,13 @@ const TaskList = () => {
     todo.map((item) =>
       item.id === id ? window.alert(`${item.title} Deleted!`) : item
     );
-    setToggleShowTodos(!toggleshowTodos);
     setTodo(data);
+    setToggleShowTodos(!toggleshowTodos);
   };
+  const deleteAll = () => {
+    setTodo([]);
+    window.alert('All Tasks Deleted!');
+  }
   const handleShowCompletedTodos = () => {
     const data = [];
     for (let i = 0; i < todo.length; i++) {
@@ -77,6 +82,11 @@ const TaskList = () => {
         handleShowCompletedTodos={handleShowCompletedTodos}
         toggleshowTodos={toggleshowTodos}
       />
+      {todo.length > 0 ? (<div className="d-flex justify-content-between align-items-center mx-3">
+        <div className="display-6">Tasks</div>
+        <Button className="btn btn-danger" onClick={deleteAll}>Delete All</Button>
+      </div>) : null}
+      <hr className="mx-3"/>
       {toggleshowTodos
         ? completedTodos?.map((item) => (
             <div className="w-96 mx-2 my-2" style={{ backgroundColor: item.bgcolor }}>
