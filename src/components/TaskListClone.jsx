@@ -3,8 +3,9 @@ import { v4 as uuid } from "uuid";
 import { TaskInput } from "./TaskInput";
 import { TaskItem } from "./TaskItem";
 import { ShowCompletedTodos } from "./showCompletedTodos";
+import OptionsWrapper from "./OptionsWrapper";
 
-const TaskList = () => {
+const TaskListClone = () => {
   const [todo, setTodo] = React.useState(() => {
     // getting stored value
     console.log('local storage called');
@@ -19,13 +20,21 @@ const TaskList = () => {
     const initialValue = JSON.parse(saved);
     return initialValue || todo;
   });
-  const [toggleshowTodos, setToggleShowTodos] = React.useState(false);
+  const [pendingTodos, setPendingTodos] = React.useState(() => {
+    // getting stored value
+    console.log('local storage called');
+    const saved = localStorage.getItem('pending_todos');
+    const initialValue = JSON.parse(saved);
+    return initialValue || todo;
+  });
+    const [option, setOption] = React.useState(1);
 
   React.useEffect(() => {
     console.log('local storage updated');
     localStorage.setItem('todo', JSON.stringify(todo));
     localStorage.setItem('completed_todos', JSON.stringify(completedTodos));
-  }, [todo, completedTodos]);
+    localStorage.setItem('pending_todos', JSON.stringify(pendingTodos));
+  }, [todo, completedTodos, pendingTodos]);
   
   const handleTodo = (taskName) => {
     const payload = {
@@ -35,7 +44,6 @@ const TaskList = () => {
       bgcolor: "#FF5C5C"
     };
     setTodo([...todo, payload]);
-    setToggleShowTodos(false);
   };
   const handleToggle = (id) => {
     const data = todo.map((item) =>
@@ -55,7 +63,6 @@ const TaskList = () => {
     todo.map((item) =>
       item.id === id ? window.alert(`${item.title} Deleted!`) : item
     );
-    setToggleShowTodos(!toggleshowTodos);
     setTodo(data);
   };
   const handleShowCompletedTodos = () => {
@@ -66,19 +73,13 @@ const TaskList = () => {
       }
     }
     setCompletedTodos(data);
-    const toggle = !toggleshowTodos;
-    setToggleShowTodos(toggle);
-    console.log(toggleshowTodos);
   };
   return (
     <>
       <TaskInput handleTodo={handleTodo} />
-      <ShowCompletedTodos
-        handleShowCompletedTodos={handleShowCompletedTodos}
-        toggleshowTodos={toggleshowTodos}
-      />
-      {toggleshowTodos
-        ? completedTodos?.map((item) => (
+      <OptionsWrapper/>
+      {option === 1
+        ? pendingTodos?.map((item) => (
             <div className="w-96 mx-2 my-2" style={{ backgroundColor: item.bgcolor }}>
               <TaskItem
                 key={item.id}
@@ -88,7 +89,16 @@ const TaskList = () => {
               />
             </div>
           ))
-        : todo?.map((item) => (
+        : option === 2 ? completedTodos?.map((item) => (
+            <div className="w-96 mx-2 my-2" style={{ backgroundColor: item.bgcolor }}>
+              <TaskItem
+                key={item.id}
+                {...item}
+                handleDelete={handleDelete}
+                handleToggle={handleToggle}
+              />
+            </div>))
+            : todo?.map((item) => (
             <div
               key={item.id}
               className="w-96 my-2 mx-2"
@@ -105,4 +115,4 @@ const TaskList = () => {
     </>
   );
 };
-export { TaskList };
+export { TaskListClone };
