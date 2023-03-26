@@ -82,11 +82,15 @@ const TaskList = () => {
         handleShowCompletedTodos={handleShowCompletedTodos}
         toggleshowTodos={toggleshowTodos}
       />
-      {todo.length > 0 ? (<div className="d-flex justify-content-between align-items-center mx-3">
-        <div className="display-6">Tasks</div>
-        <Button className="btn btn-danger" onClick={deleteAll}>Delete All</Button>
-      </div>) : null}
-      <hr className="mx-3"/>
+      {todo.length > 0 ? (
+        <>
+          <div className="d-flex justify-content-between align-items-center mx-3">
+            <div className="display-6">Tasks</div>
+            <Button className="btn btn-danger" onClick={deleteAll}>Delete All</Button>
+          </div>
+          <hr className="mx-3"/>
+        </>
+      ) : null}
       {toggleshowTodos
         ? completedTodos?.map((item) => (
             <div className="w-96 mx-2 my-2" style={{ backgroundColor: item.bgcolor }}>
