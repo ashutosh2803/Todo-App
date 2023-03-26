@@ -57,17 +57,18 @@ const TaskList = () => {
       item.id === id ? window.alert(`${item.title} Deleted!`) : item
     );
     setTodo(data);
-    setToggleShowTodos(!toggleshowTodos);
+    setToggleShowTodos(false);
   };
   const deleteAll = () => {
     setTodo([]);
     window.alert('All Tasks Deleted!');
+    setToggleShowTodos(false);
   }
   const handleShowCompletedTodos = () => {
     const data = [];
     for (let i = 0; i < todo.length; i++) {
       if (todo[i].status !== false) {
-        data.push({ ...todo[i]});
+        data.push({ ...todo[i] });
       }
     }
     setCompletedTodos(data);
@@ -93,7 +94,7 @@ const TaskList = () => {
       ) : null}
       {toggleshowTodos
         ? completedTodos?.map((item) => (
-            <div className="w-96 mx-2 my-2" style={{ backgroundColor: item.bgcolor }}>
+            <div className="w-100 mx-auto my-2" style={{ backgroundColor: item.bgcolor }}>
               <TaskItem
                 key={item.id}
                 {...item}
