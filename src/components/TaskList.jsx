@@ -29,6 +29,11 @@ const TaskList = () => {
   }, [todo, completedTodos]);
   
   const handleTodo = (taskName) => {
+    if (taskName === '') {
+      window.alert('Please enter a task!');
+      return;
+    }
+    taskName = taskName[0].toUpperCase() + taskName.slice(1);
     const payload = {
       id: uuid(),
       title: taskName,
@@ -86,7 +91,7 @@ const TaskList = () => {
       {todo.length > 0 ? (
         <>
           <div className="d-flex justify-content-between align-items-center mx-3">
-            <div className="display-6">Tasks</div>
+            <div className="display-6" style={{letterSpacing: '0.1ch'}}>Tasks</div>
             <Button className="btn btn-danger" onClick={deleteAll}>Delete All</Button>
           </div>
           <hr className="mx-3"/>
@@ -94,7 +99,7 @@ const TaskList = () => {
       ) : null}
       {toggleshowTodos
         ? completedTodos?.map((item) => (
-            <div className="w-100 mx-auto my-2" style={{ backgroundColor: item.bgcolor }}>
+            <div key={item.id} className="w-96 mx-2 my-2" style={{ backgroundColor: item.bgcolor }}>
               <TaskItem
                 key={item.id}
                 {...item}
