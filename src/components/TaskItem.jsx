@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { AiOutlineClockCircle, AiOutlineCheckCircle } from "react-icons/ai";
-import { RiDeleteBinLine } from "react-icons/ri";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 
 const TaskItem = ({ title, handleToggle, handleDelete, status, id }) => {
