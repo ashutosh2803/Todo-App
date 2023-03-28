@@ -8,7 +8,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="display-1 fw-bold">TODO</div>
+        <img style={{width: '20%'}} src="/app_logo.png" alt="app_logo" />
         <TaskList />
         {/* <TaskListClone/> */}
       </div>
