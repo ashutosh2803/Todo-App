@@ -19,7 +19,7 @@ const TaskInput = ({ handleTodo }) => {
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm" />
       </InputGroup>
-      <Button onClick={() => { handleTodo(taskName); setTaskName("")}} className="btn btn-light"><VscAdd className="display-4 cursor-pointer"></VscAdd></Button>
+      <Button onClick={() => { handleTodo(taskName); setTaskName("")}} className="btn btn-light"><VscAdd className="display-6 cursor-pointer"></VscAdd></Button>
     </div>
   );
 };

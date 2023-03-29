@@ -9,8 +9,8 @@ export class App extends Component {
     return (
       <div className="App">
         <img style={{width: '30%'}} src="/app_logo.png" alt="app_logo" />
-        <TaskList />
-        {/* <TaskListClone/> */}
+        {/* <TaskList /> */}
+        <TaskListClone/>
       </div>
     );
   }
