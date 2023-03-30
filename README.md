@@ -11,8 +11,10 @@ To run the app locally,
     ### `npm install`
     ### `npm start`
     
-![TODO List](https://user-images.githubusercontent.com/40117155/227756578-18dd3dea-cb82-4841-9d60-c553268af78a.png)
+![TODO List](https://user-images.githubusercontent.com/40117155/228459071-c2c740e1-9b1a-4b2b-9c10-eb233973dc62.png)
 
-![TODO List](https://user-images.githubusercontent.com/40117155/227756587-9fd13d88-5c57-4ecf-8887-b0abc7b27e93.png)
-    
+![TODO List](https://user-images.githubusercontent.com/40117155/228459077-40ea8b5a-95bf-4ef6-8874-5bf203ab7929.png)
+
+![TODO List](https://user-images.githubusercontent.com/40117155/228459082-f66a6c05-e1f1-472b-b3cc-9a09b127062f.png)
+
 If you liked my work, please give a star!⭐️
