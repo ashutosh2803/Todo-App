@@ -123,8 +123,8 @@ const TaskList = () => {
               <TaskItem
                 key={item.id}
                 {...item}
-                    handleDelete={handleDelete}
-                    handleToggle={handleToggle}
+                handleDelete={handleDelete}
+                handleToggle={handleToggle}
               />
             </div>
           ))
@@ -133,8 +133,8 @@ const TaskList = () => {
               <TaskItem
                 key={item.id}
                 {...item}
-                    handleDelete={handleDelete}
-                    handleToggle={handleToggle}
+                handleDelete={handleDelete}
+                handleToggle={handleToggle}
               />
             </div>))
             : todo?.map((item) => (
@@ -146,8 +146,8 @@ const TaskList = () => {
               <TaskItem
                 key={item.id}
                 {...item}
-                        handleDelete={handleDelete}
-                        handleToggle={handleToggle}
+                handleDelete={handleDelete}
+                handleToggle={handleToggle}
               />
             </div>
           ))}
