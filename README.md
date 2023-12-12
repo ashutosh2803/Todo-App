@@ -3,9 +3,11 @@
 ## Running the app
 
 ## To run the deployed app, visit
+
 - Netlify - https://ashutosh-todo-app.netlify.app/
 - Vercel  - https://todo-app-ashutosh2803.vercel.app/
-To run the app locally, 
+
+## To run the app locally, 
 
 1.  download the repository in your pc locally.
 
