@@ -1,0 +1,8 @@
+.customBorder img {
+transition: .5s ease;
+}
+
+.customBorder img:hover{
+box-shadow: 0 0 0 10px #000000;
+transition: .5s ease;
+}
