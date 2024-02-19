@@ -12,8 +12,7 @@ import validator from "validator";
 //   "https://reqres.in/img/faces/9-image.jpg"
 // ]
 const Register = () => {
-  const [first, setFirst] = useState("");
-  const [last, setLast] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [tmpPassword, setTmpPassword] = useState("");
@@ -43,13 +42,13 @@ const Register = () => {
     }
     if (tmpPassword.length > 0) {
       setTmpPasswordClicked(true);
+      setPasswordClicked(false);
     } else {
       setTmpPasswordClicked(false);
     }
     if (
       password === tmpPassword &&
-      first.length > 0 &&
-      last.length > 0 &&
+      name.length > 0 &&
       email.length > 0 &&
       password.length > 0 &&
       tmpPassword.length > 0 &&
@@ -89,16 +88,11 @@ const Register = () => {
       <div className="display-1 my-5" style={{textAlign: "center"}}>Register</div>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <InputGroup className="mb-3" hasValidation>
-          <InputGroup.Text>First and last name</InputGroup.Text>
           <Form.Control
-            aria-label="First name"
-            value={first}
-            onChange={(e) => setFirst(e.target.value)}
-          />
-          <Form.Control
-            aria-label="Last name"
-            value={last}
-            onChange={(e) => setLast(e.target.value)}
+            placeholder="Enter Name"
+            aria-label="Enter name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </InputGroup>
         <InputGroup className="mb-3">
