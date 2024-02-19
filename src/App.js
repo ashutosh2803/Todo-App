@@ -8,8 +8,8 @@ import Login from "./components/Login";
 const App = () => {
   return (
       <div className="App">
-        {/* <img style={{width: '30%'}} src="/app_logo.png" alt="app_logo" />
-        <TaskList /> */}
+        <div style={{textAlign: "center"}}><img style={{width: '30%'}} src="/app_logo.png" alt="app_logo" /></div>
+        {/* <TaskList /> */}
       <Register/>
       {/* <Login/> */}
       </div>

@@ -26,7 +26,7 @@ const Login = () => {
             </InputGroup>
         <button type="submit" className="btn btn-primary">Submit</button>
       </Form>
-      <button className="btn btn-info my-3" >Click here to Register</button>
+      <button className="btn btn-success my-3" >Click here to Register !</button>
     </div>
   );
 };
